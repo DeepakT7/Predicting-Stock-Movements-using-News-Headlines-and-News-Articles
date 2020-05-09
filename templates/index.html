@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Stock Market Prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<!-- <link rel="stylesheet" href="static/style.css"> -->
+<!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
+<!-- <link rel="stylesheet" href="C:/Users/rohit/Documents/Stock Market Prediction/static/style.css"> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<style>
+	@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+	.btn { display: inline-block; *display: inline; *zoom: 1; padding: 4px 10px 4px; margin-bottom: 0; font-size: 13px; line-height: 18px; color: #333333; text-align: center;text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75); vertical-align: middle; background-color: #f5f5f5; background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6); background-image: -ms-linear-gradient(top, #ffffff, #e6e6e6); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6)); background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6); background-image: -o-linear-gradient(top, #ffffff, #e6e6e6); background-image: linear-gradient(top, #ffffff, #e6e6e6); background-repeat: repeat-x; filter: progid:dximagetransform.microsoft.gradient(startColorstr=#ffffff, endColorstr=#e6e6e6, GradientType=0); border-color: #e6e6e6 #e6e6e6 #e6e6e6; border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); border: 1px solid #e6e6e6; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); cursor: pointer; *margin-left: .3em; }
+	.btn:hover, .btn:active, .btn.active, .btn.disabled, .btn[disabled] { background-color: #e6e6e6; }
+	.btn-large { padding: 9px 14px; font-size: 15px; line-height: normal; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
+	.btn:hover { color: #333333; text-decoration: none; background-color: #e6e6e6; background-position: 0 -15px; -webkit-transition: background-position 0.1s linear; -moz-transition: background-position 0.1s linear; -ms-transition: background-position 0.1s linear; -o-transition: background-position 0.1s linear; transition: background-position 0.1s linear; }
+	.btn-primary, .btn-primary:hover { text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); color: #ffffff; }
+	.btn-primary.active { color: rgba(255, 255, 255, 0.75); }
+	.btn-primary { background-color: #4a77d4; background-image: -moz-linear-gradient(top, #6eb6de, #4a77d4); background-image: -ms-linear-gradient(top, #6eb6de, #4a77d4); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#6eb6de), to(#4a77d4)); background-image: -webkit-linear-gradient(top, #6eb6de, #4a77d4); background-image: -o-linear-gradient(top, #6eb6de, #4a77d4); background-image: linear-gradient(top, #6eb6de, #4a77d4); background-repeat: repeat-x; filter: progid:dximagetransform.microsoft.gradient(startColorstr=#6eb6de, endColorstr=#4a77d4, GradientType=0);  border: 1px solid #3762bc; text-shadow: 1px 1px 1px rgba(0,0,0,0.4); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.5); }
+	.btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] { filter: none; background-color: #4a77d4; }
+	.btn-block { width: 100%; display:block; }
+
+	* { -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -ms-box-sizing:border-box; -o-box-sizing:border-box; box-sizing:border-box; }
+
+	html { width: 100%; height:100%; overflow:hidden; }
+
+	body { 
+		width: 100%;
+		height:100%;
+		font-family: 'Open Sans', sans-serif;
+		background: #092756;
+		color: #fff;
+		font-size: 18px;
+		text-align:center;
+		letter-spacing:1.2px;
+		background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%),-moz-linear-gradient(top,  rgba(57,173,219,.25) 0%, rgba(42,60,87,.4) 100%), -moz-linear-gradient(-45deg,  #670d10 0%, #092756 100%);
+		background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -webkit-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -webkit-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+		background: -o-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -o-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -o-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+		background: -ms-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -ms-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -ms-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+		background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), linear-gradient(to bottom,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), linear-gradient(135deg,  #670d10 0%,#092756 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756',GradientType=1 );
+
+	}
+	.login { 
+		/* position: absolute; 
+		top: 40%;
+		left: 50%;
+		margin: -150px 0 0 -150px;
+		width:400px;
+		height:400px; */
+		text-align: center;
+	}
+
+	#a{
+		position: absolute;
+		float: left;
+		top: 250px;
+		left: 900px;
+	}
+	#b{
+	position: absolute;
+	float: left;
+		top: 300px;
+		left: 400px;
+	}
+	#c{
+	position: absolute;
+	/* float: left; */
+		top: 550px;
+		left:400px;
+	}
+
+	h1 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; padding-top: 100px;}
+
+	input[type=text] { 
+		width: 100%; 
+		margin-bottom: 10px; 
+		background: rgba(0,0,0,0.3);
+		border: none;
+		outline: none;
+		padding: 10px;
+		font-size: 13px;
+		color: #fff;
+		text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+		border: 1px solid rgba(0,0,0,0.3);
+		border-radius: 4px;
+		box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+		-webkit-transition: box-shadow .5s ease;
+		-moz-transition: box-shadow .5s ease;
+		-o-transition: box-shadow .5s ease;
+		-ms-transition: box-shadow .5s ease;
+		transition: box-shadow .5s ease;
+	}
+	input[type=text]:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }
+	.glow-on-hover {
+        display: inline-block;
+        width: 100%;
+        height: 40px;
+        border: none;
+        outline: none;
+        color: #fff;
+        background: #000;
+        cursor: pointer;
+        position: relative;
+        z-index: 0;
+        border-radius: 10px;
+        /* margin-top: 1px; */
+        padding-top: 1px;
+    }
+
+    .glow-on-hover:before {
+        content: '';
+        background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+        position: absolute;
+        top: -2px;
+        left:-2px;
+        background-size: 400%;
+        z-index: -1;
+        filter: blur(5px);
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        animation: glowing 20s linear infinite;
+        opacity: 0;
+        transition: opacity .3s ease-in-out;
+        border-radius: 10px;
+    }
+
+    .glow-on-hover:active {
+        color: #000;
+    }
+
+    .glow-on-hover:active:after {
+        background: transparent;
+    }
+
+    .glow-on-hover:hover:before {
+        opacity: 1;
+    }
+
+    .glow-on-hover:after {
+        z-index: -1;
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #0275d8;
+        left: 0;
+        top: 0;
+        border-radius: 10px;
+    }
+
+    @keyframes glowing {
+        0% { background-position: 0 0; }
+        50% { background-position: 400% 0; }
+        100% { background-position: 0 0; }
+    }
+</style>
+
+  
+</head>
+
+<body>
+  <div class="login">
+    <h1>{{Prediction}}</h1>
+
+	<div>
+		<div id="b">
+		<!-- Main Input For Receiving Query to our ML -->
+		<form action="{{ url_for('make_predict')}}"method="post"  enctype="multipart/form-data">
+			<input type="file" name="file" style="float: left;" id="imgInp"/>
+			<input type="text" name="headline" placeholder="Headline" style="width: 58%; margin-right: 50%;"/>
+			<input type="text" name="url" placeholder="URL" style="width: 58%; margin-right: 50%;"/>
+			<button type="submit" class="btn btn-primary btn-block btn-large" style="width: 58%;">{{Predict}}</button>
+		</form>
+		</div>
+		<div id="a">
+			{{ prediction_text }}
+			<img src="#" id="blah" style = "float:bottom; max-height:50%; max-width:80%;" alt="">
+			<!-- <img src="/plot.png" alt="my plot"> -->
+			<img src= {{ url }} height="400" width="400" alt="">
+			<!-- <img src= '/static/plot.png' height="400" width="400"> -->
+		</div>
+	</div>
+
+    <br>
+	<br>
+	<div id="c">
+		<form action="{{ url_for('graph1')}}"method="post">
+			<input type="text" name="headline" placeholder="Ticker"/>
+			<input type="text" name="url" placeholder="Days"/>
+			<button type="submit" class="btn btn-primary btn-block btn-large">{{Plot}}</button>
+		</form>
+	</div>
+
+  </div>
+
+</body>
+<script>
+	function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    
+    reader.onload = function(e) {
+      $('#blah').attr('src', e.target.result);
+    }
+    
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+$("#imgInp").change(function() {
+  readURL(this);
+});
+</script>
+</html>
