@@ -1,4 +1,7 @@
 # Predicting Stock Movements using News Headlines and News Articles
+
+[![forthebadge made-with-python](https://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+
  The main objective of the system is to analyse the future value of a certain stock of a particular company using the sentiment analysis and to predict whether a particular stock will go up that is whether it will increase or it will go down which means it will decrease on the basis of certain news headline, also detection of fake news and OCR was implemented for providing the user as an option for entering the news headline or a news article, the data we used was DJIA news headlines dataset and five different machine learning algorithms were used – Random Forest classifier, Naïve Bayes, Decision Tree, Logistic Regression and Support Vector Machine(SVM).
  
  
@@ -7,3 +10,15 @@
 
 Also the user can have a quick view on the real time stock history or stock prices jut by selecting the ticker and the no of days/months the user wants to see, the model will return real time graph of the selected day/month for stock price of the particular company of which the ticker has been selected. Also the system 
 provides an option to upload the news headlines as well as the whole web-app in three different languages which are English, Hindi and Marathi.    
+
+## Quickstart
+
+Clone the git repository:
+```console
+$ git clone https://github.com/DeepakT7/Predicting-Stock-Movements-using-News-Headlines-and-News-Articles.git && cd Predicting-Stock-Movements-using-News-Headlines-and-News-Articles
+```
+
+Install necessary dependencies
+```console
+$ pip install -r requirements.txt
+```
