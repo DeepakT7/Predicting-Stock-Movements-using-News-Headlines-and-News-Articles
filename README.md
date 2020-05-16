@@ -22,3 +22,40 @@ Install necessary dependencies
 ```console
 $ pip install -r requirements.txt
 ```
+
+Start the developement server
+```console
+$ python app.py
+```
+
+Open the server running on
+
+### [http://localhost:5000/](http://localhost:5000/)
+
+
+## Screenshots
+
+#### 1. Select a language
+
+![image](https://github.com/DeepakT7/Predicting-Stock-Movements-using-News-Headlines-and-News-Articles/blob/master/Screenshots/Capture1.PNG)
+
+#### 2. Prediction through OCR (Optical Character Recognition)
+
+![image](https://github.com/DeepakT7/Predicting-Stock-Movements-using-News-Headlines-and-News-Articles/blob/master/Screenshots/Capture3.PNG) 
+![image](https://github.com/DeepakT7/Predicting-Stock-Movements-using-News-Headlines-and-News-Articles/blob/master/Screenshots/Capture4.PNG)
+
+#### 3. Prediction through Headline
+
+![image](https://github.com/DeepakT7/Predicting-Stock-Movements-using-News-Headlines-and-News-Articles/blob/master/Screenshots/Capture6.PNG)
+
+#### 4. Prediction through URL
+
+![image](https://github.com/DeepakT7/Predicting-Stock-Movements-using-News-Headlines-and-News-Articles/blob/master/Screenshots/Capture10.PNG)
+
+#### 5. Real Time Analysis
+
+![image](https://github.com/DeepakT7/Predicting-Stock-Movements-using-News-Headlines-and-News-Articles/blob/master/Screenshots/Capture13.PNG)
+
+#### 6. Accuracy Measure
+
+![image](https://github.com/DeepakT7/Predicting-Stock-Movements-using-News-Headlines-and-News-Articles/blob/master/Screenshots/Capture15.PNG)
