@@ -26,7 +26,7 @@ MarkupSafe==1.1.1
 mccabe==0.6.1
 newspaper3k==0.2.8
 nltk==3.4.5
-numpy==1.18.0
+numpy==1.22.0
 pandas==0.25.3
 Pillow==7.0.0
 pylint==2.4.4
